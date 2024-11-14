@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Cam</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <canvas id="input" width="480" height="480"></canvas>
+  <canvas id="output" width="32" height="32"></canvas>
+  <video id="video" autoplay playsinline></video>
+  <img id="image" src="sample.jpg" alt="Sample Image">
+
+  <div class="controls">
+    <button id="showVideo">Start WebCam</button>
+    <label for="colorBits">Bits used in color (between 1 and 8):</label>
+    <input type="number" id="colorBits" name="colorBits" min="1" max="8" value="4">
+    <label for="resolution">Size of the image in pixels:</label>
+    <select name="resolution" id="resolution">
+      <option value="240">240</option>
+      <option value="160">160</option>
+      <option value="80">80</option>
+      <option value="40">40</option>
+      <option selected="selected" value="32">32</option>
+      <option value="20">20</option>
+      <option value="16">16</option>
+      <option value="10">10</option>
+      <option value="8">8</option>
+      <option value="5">5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+      <option value="1">1</option>
+    </select>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
