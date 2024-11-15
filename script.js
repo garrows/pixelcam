@@ -65,8 +65,8 @@ function draw() {
 function downsample(num) {
     const inputBits = 8
     const outputBits = parseInt(colorBits.value);
-    const inputRange = 2 ^ inputBits - 1;
-    const outputRange = 2 ^ outputBits - 1;
+    const inputRange = Math.pow(2, inputBits) - 1;
+    const outputRange = Math.pow(2, outputBits) - 1;
     const inputPercent = num / inputRange;
     const down = Math.round(outputRange * inputPercent);
     const outputPercent = down / outputRange;
