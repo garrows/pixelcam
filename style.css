@@ -6,13 +6,19 @@ body {
     /* Aligns content at the top */
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+}
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
 }
 
 canvas {
     width: 90%;
     max-width: 800px;
-    border: 2px solid #333;
+    border: 0;
     image-rendering: pixelated;
     margin-bottom: 20px;
     /* Add some space below the canvases */
