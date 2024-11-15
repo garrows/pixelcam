@@ -22,7 +22,7 @@ function draw() {
     const { width, height } = inputCanvas;
     const offset = (img.width - img.height) / 2;
     if (!video.paused) {
-        inputCtx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+        inputCtx.drawImage(video, -offset, 0, video.videoWidth, video.videoHeight);
     } else {
         inputCtx.drawImage(img, offset, 0, width, height, 0, 0, width, height);
     }
@@ -40,8 +40,8 @@ function draw() {
 
         const multiple = (inputCanvas.height / outputCanvas.height);
         let sumR = 0, sumG = 0, sumB = 0, sampleCount = 0;
-        for (let offsetY = 0; offsetY <= multiple; offsetY++) {
-            for (let offsetX = 0; offsetX <= multiple; offsetX++) {
+        for (let offsetY = 0; offsetY < multiple; offsetY++) {
+            for (let offsetX = 0; offsetX < multiple; offsetX++) {
                 const iI = ((iY + offsetY) * inputCanvas.width + (iX + offsetX)) * 4;
                 if (isNaN(inputData[iI])) { continue } // Maths is wrong somewhere on the bottom edge. This hacks around it
                 sumR += inputData[iI];
@@ -86,7 +86,7 @@ function handleSuccess(stream) {
     video.addEventListener(
         "play",
         () => {
-            inputCanvas.width = video.videoWidth;
+            inputCanvas.width = video.videoHeight; // Make it square
             inputCanvas.height = video.videoHeight;
         },
         false,
